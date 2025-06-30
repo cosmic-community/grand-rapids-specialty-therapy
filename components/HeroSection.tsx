@@ -6,12 +6,20 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ page, className = "" }: HeroSectionProps) {
+  // Get hero image from page metadata, fallback to default if not available
+  const heroImage = page?.metadata?.hero_image?.imgix_url || 
+    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&h=1080&fit=crop&auto=format,compress";
+  
+  // Get hero content from page metadata, fallback to defaults
+  const heroTitle = page?.metadata?.hero_title || "Welcome to Grand Rapids Specialty Therapy";
+  const heroSubtitle = page?.metadata?.hero_subtitle || "(Hey there, brave person, we are so glad you're here)";
+
   return (
     <section className={`relative h-screen w-full overflow-hidden ${className}`}>
-      {/* Background Image - Fixed to cover entire viewport */}
+      {/* Background Image - Using CMS hero image with optimization */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&h=1080&fit=crop&auto=format,compress"
+          src={`${heroImage}?w=1920&h=1080&fit=crop&auto=format,compress`}
           alt="Therapy session - counselor and client in conversation"
           className="w-full h-full object-cover"
         />
@@ -23,10 +31,10 @@ export default function HeroSection({ page, className = "" }: HeroSectionProps) 
       <div className="relative z-10 flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
-            Welcome to Grand Rapids Specialty Therapy
+            {heroTitle}
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl text-neutral-200 font-light leading-relaxed">
-            (Hey there, brave person, we are so glad you're here)
+            {heroSubtitle}
           </p>
         </div>
       </div>
