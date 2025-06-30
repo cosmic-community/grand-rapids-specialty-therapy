@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-neutral-800 bg-neutral-50;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-neutral-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 hover:bg-secondary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-neutral-200 p-6;
+  }
+  
+  .hero-section {
+    @apply relative py-20 lg:py-32 overflow-hidden;
+  }
+  
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-neutral-900/70 to-neutral-900/30;
+  }
+  
+  .prose-content {
+    @apply prose prose-lg max-w-none;
+  }
+  
+  .prose-content h2 {
+    @apply text-2xl font-bold text-neutral-900 mt-8 mb-4;
+  }
+  
+  .prose-content h3 {
+    @apply text-xl font-semibold text-neutral-800 mt-6 mb-3;
+  }
+  
+  .prose-content p {
+    @apply text-neutral-700 leading-relaxed mb-4;
+  }
+  
+  .prose-content ul {
+    @apply list-disc list-inside space-y-2 text-neutral-700;
+  }
+  
+  .prose-content strong {
+    @apply font-semibold text-neutral-900;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, theme('colors.primary.600'), theme('colors.secondary.600'));
+  }
+}
