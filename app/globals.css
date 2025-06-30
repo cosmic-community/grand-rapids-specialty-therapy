@@ -106,25 +106,25 @@
     @apply w-3/4;
   }
   
-  /* Hero Section */
+  /* Hero Section - Updated for full viewport coverage */
   .hero-section {
-    @apply relative py-20 lg:py-32 overflow-hidden;
+    @apply relative h-screen w-full overflow-hidden;
   }
   
   .hero-overlay {
-    @apply absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-neutral-900/40;
+    @apply absolute inset-0 bg-gradient-to-br from-neutral-900/70 via-neutral-900/50 to-neutral-900/60;
   }
 
   .hero-content {
-    @apply relative z-10 text-center text-white;
+    @apply relative z-10 flex items-center justify-center h-full text-center text-white px-4;
   }
 
   .hero-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white to-neutral-200 bg-clip-text text-transparent;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-white;
   }
 
   .hero-subtitle {
-    @apply text-lg md:text-xl text-neutral-200 mb-8 max-w-2xl mx-auto leading-relaxed;
+    @apply text-xl md:text-2xl lg:text-3xl text-neutral-200 font-light leading-relaxed;
   }
   
   /* Content Sections */
