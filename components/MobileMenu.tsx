@@ -103,53 +103,96 @@ export default function MobileMenu({ navigationPages, siteSettings }: MobileMenu
             <Link
               href="/team"
               onClick={closeMenu}
-              className="flex items-center space-x-3 px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200 group"
+              className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
             >
-              <svg className="w-5 h-5 text-neutral-400 group-hover:text-primary-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              <span>Team</span>
+              GRSTeam
             </Link>
 
-            <Link
-              href="/specialties"
-              onClick={closeMenu}
-              className="flex items-center space-x-3 px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200 group"
-            >
-              <svg className="w-5 h-5 text-neutral-400 group-hover:text-primary-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-              <span>Specialties</span>
-            </Link>
-
+            {/* Values page from dynamic pages */}
             {navigationPages
-              .filter(page => page.slug !== 'home')
+              .filter(page => page.slug === 'values')
               .map((page) => (
                 <Link
                   key={page.id}
                   href={`/${page.slug}`}
                   onClick={closeMenu}
-                  className="flex items-center space-x-3 px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200 group"
+                  className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
                 >
-                  <div className="w-5 h-5 bg-neutral-200 rounded-md flex items-center justify-center group-hover:bg-primary-200 transition-colors">
-                    <span className="text-xs font-bold text-neutral-600 group-hover:text-primary-700">
-                      {page.title.charAt(0).toUpperCase()}
-                    </span>
-                  </div>
-                  <span>{page.title}</span>
+                  Values
+                </Link>
+              ))}
+
+            <Link
+              href="/specialties"
+              onClick={closeMenu}
+              className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
+            >
+              Areas of Specialty
+            </Link>
+
+            {/* Resources page from dynamic pages */}
+            {navigationPages
+              .filter(page => page.slug === 'resources')
+              .map((page) => (
+                <Link
+                  key={page.id}
+                  href={`/${page.slug}`}
+                  onClick={closeMenu}
+                  className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
+                >
+                  Resources
                 </Link>
               ))}
 
             <Link
               href="/faq"
               onClick={closeMenu}
-              className="flex items-center space-x-3 px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200 group"
+              className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
             >
-              <svg className="w-5 h-5 text-neutral-400 group-hover:text-primary-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>FAQ</span>
+              FAQs
             </Link>
+
+            {/* Join GRST page from dynamic pages */}
+            {navigationPages
+              .filter(page => page.slug === 'join-grst')
+              .map((page) => (
+                <Link
+                  key={page.id}
+                  href={`/${page.slug}`}
+                  onClick={closeMenu}
+                  className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
+                >
+                  Join GRST
+                </Link>
+              ))}
+
+            {/* Internships & Supervision page from dynamic pages */}
+            {navigationPages
+              .filter(page => page.slug === 'internships-supervision')
+              .map((page) => (
+                <Link
+                  key={page.id}
+                  href={`/${page.slug}`}
+                  onClick={closeMenu}
+                  className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
+                >
+                  Internships & Supervision
+                </Link>
+              ))}
+
+            {/* Contact page from dynamic pages */}
+            {navigationPages
+              .filter(page => page.slug === 'contact')
+              .map((page) => (
+                <Link
+                  key={page.id}
+                  href={`/${page.slug}`}
+                  onClick={closeMenu}
+                  className="flex items-center px-4 py-3 text-base font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl transition-all duration-200"
+                >
+                  Contact
+                </Link>
+              ))}
           </nav>
 
           {/* Contact CTA */}
