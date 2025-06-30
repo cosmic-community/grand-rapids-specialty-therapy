@@ -7,9 +7,10 @@ import { Page, SiteSettings } from '@/types'
 interface MobileMenuProps {
   navigationPages: Page[];
   siteSettings: SiteSettings | null;
+  isScrolled: boolean;
 }
 
-export default function MobileMenu({ navigationPages, siteSettings }: MobileMenuProps) {
+export default function MobileMenu({ navigationPages, siteSettings, isScrolled }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -39,7 +40,11 @@ export default function MobileMenu({ navigationPages, siteSettings }: MobileMenu
       {/* Menu Button */}
       <button
         onClick={toggleMenu}
-        className="p-3 rounded-xl text-neutral-700 hover:text-primary-600 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all duration-200"
+        className={`p-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all duration-200 ${
+          isScrolled 
+            ? 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-100' 
+            : 'text-white hover:text-primary-300 hover:bg-white/20'
+        }`}
         aria-expanded={isOpen}
         aria-label="Toggle menu"
       >

@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { getSiteSettings } from '@/lib/cosmic'
+import { getSiteSettings, getNavigationPages } from '@/lib/cosmic'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -21,11 +21,12 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const siteSettings = await getSiteSettings();
+  const navigationPages = await getNavigationPages();
 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header siteSettings={siteSettings} />
+        <Header siteSettings={siteSettings} navigationPages={navigationPages} />
         <main className="min-h-screen">
           {children}
         </main>
