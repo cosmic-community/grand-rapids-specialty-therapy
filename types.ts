@@ -151,8 +151,8 @@ function isSiteSettings(obj: CosmicObject): obj is SiteSettings {
   return obj.type_slug === 'site-settings';
 }
 
-// Utility types
-type OptionalMetadata<T> = Partial<T['metadata']>;
+// Utility types - Fixed generic constraint
+type OptionalMetadata<T extends CosmicObject> = Partial<T['metadata']>;
 
 // Export all types
 export type {

@@ -42,6 +42,8 @@ export default async function FAQPage() {
           <div className="space-y-12">
             {categories.map((categoryKey) => {
               const category = faqsByCategory[categoryKey];
+              if (!category) return null;
+              
               return (
                 <div key={categoryKey}>
                   <h2 className="text-2xl font-bold text-neutral-900 mb-6">
