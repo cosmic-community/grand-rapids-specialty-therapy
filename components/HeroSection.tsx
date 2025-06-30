@@ -1,8 +1,11 @@
+import { Page } from '@/types';
+
 interface HeroSectionProps {
+  page?: Page;
   className?: string;
 }
 
-export default function HeroSection({ className = "" }: HeroSectionProps) {
+export default function HeroSection({ page, className = "" }: HeroSectionProps) {
   return (
     <section className={`relative h-screen w-full overflow-hidden ${className}`}>
       {/* Background Image - Fixed to cover entire viewport */}
